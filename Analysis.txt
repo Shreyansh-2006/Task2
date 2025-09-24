@@ -1,0 +1,79 @@
+PHISHING EMAIL ANALYSIS - TASK 2
+
+1. OBJECTIVE
+The goal of this task is to analyze a phishing email sample and identify suspicious elements such as spoofed sender address, fake links, threatening language, and email header anomalies.
+
+------------------------------------------------------------
+
+2. STEPS FOLLOWED
+- Obtained a sample phishing email.(spam folder)
+- Examined the sender's email address.
+- Viewed full email headers using 'Show Original' in Gmail and analyzed them with MxToolbox.
+- Identified suspicious links by hovering and checking the actual URLs.
+- Checked email for urgent/threatening language and poor grammar.
+- Summarized all phishing traits found in a structured report and attach some screenshots.
+
+------------------------------------------------------------
+Sample Email
+
+
+Dear Student,
+
+We are pleased to inform you that registrations are now open for the IIT Hyderabad E-Cell Internship Program, scheduled for October 2025. This program has been carefully designed to provide students with hands-on industry exposure, structured learning, and a pathway to future career opportunities.
+
+Program Highlights:
+
+Stipend: ₹20,000 – ₹25,000 per month (Performance-based)
+
+Pre-Placement Offers (PPOs): Opportunity to secure a full-time role before graduation
+
+Placement Support: Eligibility for exclusive off-campus drives with reputed partner companies
+
+Learning Format: Flexible – Online 
+
+Why Apply?
+
+Gain practical industry experience while studying
+
+Enhance employability through structured career support
+
+Unlock early career opportunities with PPOs and placements
+
+Important Information:
+
+Limited seats are available – early registration is strongly recommended
+
+A one-time registration fee is applicable
+
+Next Steps:
+
+Updates & Notifications: Join our official group
+
+Application Submission: Apply here
+
+Take this opportunity to build skills, gain industry exposure, and accelerate your career growth.
+
+Best regards,
+Vidya
+
+------------------------------------------------------------
+
+4. PHISHING INDICATORS FOUND
+- Urgent and threatening language urging immediate action
+- No DMARC record found for domain, SPF alignment failed
+
+not sure is it completely phishing email or not.
+
+------------------------------------------------------------
+
+5. HEADER ANALYSIS (MXTOOLBOX RESULTS)
+SPF Authentication : PASS (Email sent from allowed IP, but alignment failed - possible spoof)
+SPF Alignment      : FAIL (Domain not found in SPF)
+DKIM Authentication: PASS (Email signature verified - not altered)
+DKIM Alignment     : PASS (DKIM domain matches From domain)
+DMARC             : NO RECORD (Domain has no DMARC policy - easier to spoof)
+
+------------------------------------------------------------
+
+6. CONCLUSION & RECOMMENDATION
+The absence of a DMARC record and SPF alignment issue indicate that this email may not be from the legitimate sender. These findings support the suspicion of email spoofing. Although DKIM passed, making this email likely malicious
